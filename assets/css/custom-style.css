@@ -1,0 +1,93 @@
+/* Custom styling for profile */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Glass Navbar */
+.glass-nav {
+    background: rgba(10, 10, 10, 0.4);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+.glass-nav.scrolled {
+    background: rgba(10, 10, 10, 0.85);
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Animations */
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 1s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 1s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal-up {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.active.reveal-left,
+.active.reveal-right,
+.active.reveal-up {
+    opacity: 1;
+    transform: translate(0);
+}
+
+/* Skill progress bar animation */
+.skill-progress {
+    width: 0;
+    transition: width 1.5s ease-out;
+}
+
+/* Glowing text */
+.glow-text {
+    text-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+}
+
+/* Portfolio Card Hover */
+.portfolio-card {
+    overflow: hidden;
+}
+
+.portfolio-card img {
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-card:hover img {
+    transform: scale(1.1);
+}
+
+.portfolio-overlay {
+    background: linear-gradient(to top, rgba(10,10,10, 0.9) 0%, rgba(10,10,10, 0.4) 50%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.portfolio-card:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.portfolio-content {
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-card:hover .portfolio-content {
+    transform: translateY(0);
+    opacity: 1;
+}
