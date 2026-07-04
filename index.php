@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muhammad Anurohim | Web App Developer</title>
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="images/avatar_transparent.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/avatar_transparent.png">
     <!-- Tailwind CSS (Compiled) -->
     <link rel="stylesheet" href="assets/css/tailwind.css">
     <!-- Google Fonts -->
@@ -39,7 +39,7 @@
             <div class="flex items-center justify-between h-20">
                 <div class="flex-shrink-0">
                     <a href="#" class="flex items-center gap-3 group">
-                        <img class="h-10 w-10 rounded-full border border-white/10 group-hover:border-brand-500 transition-colors object-cover" src="images/avatar_transparent.png" alt="Anurohim">
+                        <img class="h-10 w-10 rounded-full border border-white/10 group-hover:border-brand-500 transition-colors object-cover" src="assets/images/avatar_transparent.png" alt="Anurohim">
                         <span class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 group-hover:to-brand-400 transition-colors">Anur.</span>
                     </a>
                 </div>
@@ -130,6 +130,9 @@
                     <a href="https://github.com/anurr23" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:bg-white/10 transition-all hover:-translate-y-1">
                         <i class="ph-fill ph-github-logo text-2xl"></i>
                     </a>
+                    <a href="https://wa.me/6281939048569" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-green-400 hover:bg-white/10 transition-all hover:-translate-y-1">
+                        <i class="ph-fill ph-whatsapp-logo text-2xl"></i>
+                    </a>
                 </div>
             </div>
             
@@ -140,16 +143,16 @@
                 <div class="relative group mt-12 md:mt-0 w-72 h-72 lg:w-96 lg:h-96 mx-auto lg:mx-0">
                     <div class="absolute -inset-1 bg-gradient-to-tr from-brand-500 to-purple-500 rounded-full blur-md opacity-40 group-hover:opacity-70 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
                     <div class="relative w-full h-full rounded-full p-2 bg-dark-900">
-                        <img src="images/new_avatar_final.png" alt="Muhammad Anurohim" class="w-full h-full object-cover rounded-full filter grayscale-[20%] group-hover:grayscale-0 transition-all duration-500">
+                        <img src="assets/images/new_avatar_final.png" alt="Muhammad Anurohim" class="w-full h-full object-cover rounded-full filter grayscale-[20%] group-hover:grayscale-0 transition-all duration-500">
                     </div>
                 </div>
                 
                 <!-- Floating Tech Badges -->
                 <div class="absolute top-10 right-0 lg:-right-10 bg-dark-800/80 backdrop-blur-md border border-white/10 p-3 rounded-2xl shadow-xl animate-[bounce_4s_infinite]">
-                    <img src="images/icons/laravel.svg" class="w-8 h-8" alt="Laravel">
+                    <img src="assets/images/icons/laravel.svg" class="w-8 h-8" alt="Laravel">
                 </div>
                 <div class="absolute bottom-20 left-0 lg:-left-10 bg-dark-800/80 backdrop-blur-md border border-white/10 p-3 rounded-2xl shadow-xl animate-[bounce_5s_infinite_1s]">
-                    <img src="images/icons/postgresql.svg" class="w-8 h-8" alt="PostgreSQL">
+                    <img src="assets/images/icons/postgresql.svg" class="w-8 h-8" alt="PostgreSQL">
                 </div>
             </div>
         </div>
@@ -397,7 +400,7 @@
                 <!-- Portfolio Item 1 -->
                 <div class="portfolio-card rounded-3xl bg-dark-800 border border-white/10 relative cursor-pointer reveal-up shadow-xl">
                     <div class="aspect-w-16 aspect-h-12 w-full h-72">
-                        <img src="images/portfolio/pakoku.jpg" alt="Personality Application" class="w-full h-full object-cover">
+                        <img src="assets/images/portfolio/pakoku.jpg" alt="Personality Application" class="w-full h-full object-cover">
                     </div>
                     <div class="absolute inset-0 portfolio-overlay flex flex-col justify-end p-8">
                         <div class="portfolio-content">
@@ -410,7 +413,7 @@
                 <!-- Portfolio Item 2 -->
                 <div class="portfolio-card rounded-3xl bg-dark-800 border border-white/10 relative cursor-pointer reveal-up [animation-delay:100ms] shadow-xl">
                     <div class="aspect-w-16 aspect-h-12 w-full h-72">
-                        <img src="images/portfolio/pakopintar.jpg" alt="Learning Application" class="w-full h-full object-cover">
+                        <img src="assets/images/portfolio/pakopintar.jpg" alt="Learning Application" class="w-full h-full object-cover">
                     </div>
                     <div class="absolute inset-0 portfolio-overlay flex flex-col justify-end p-8">
                         <div class="portfolio-content">
@@ -423,7 +426,7 @@
                 <!-- Portfolio Item 3 -->
                 <div class="portfolio-card rounded-3xl bg-dark-800 border border-white/10 relative cursor-pointer reveal-up [animation-delay:200ms] shadow-xl">
                     <div class="aspect-w-16 aspect-h-12 w-full h-72">
-                        <img src="images/portfolio/lhp.jpg" alt="Production Daily Report" class="w-full h-full object-cover">
+                        <img src="assets/images/portfolio/lhp.jpg" alt="Production Daily Report" class="w-full h-full object-cover">
                     </div>
                     <div class="absolute inset-0 portfolio-overlay flex flex-col justify-end p-8">
                         <div class="portfolio-content">
@@ -436,7 +439,7 @@
                 <!-- Portfolio Item 4 -->
                 <div class="portfolio-card rounded-3xl bg-dark-800 border border-white/10 relative cursor-pointer reveal-up shadow-xl">
                     <div class="aspect-w-16 aspect-h-12 w-full h-72">
-                        <img src="images/portfolio/lhp-dash.jpg" alt="Production Dashboard" class="w-full h-full object-cover">
+                        <img src="assets/images/portfolio/lhp-dash.jpg" alt="Production Dashboard" class="w-full h-full object-cover">
                     </div>
                     <div class="absolute inset-0 portfolio-overlay flex flex-col justify-end p-8">
                         <div class="portfolio-content">
@@ -449,7 +452,7 @@
                 <!-- Portfolio Item 5 -->
                 <div class="portfolio-card rounded-3xl bg-dark-800 border border-white/10 relative cursor-pointer reveal-up [animation-delay:100ms] shadow-xl">
                     <div class="aspect-w-16 aspect-h-12 w-full h-72">
-                        <img src="images/portfolio/ecm.jpg" alt="Electric Corrective Maintenance" class="w-full h-full object-cover top">
+                        <img src="assets/images/portfolio/ecm.jpg" alt="Electric Corrective Maintenance" class="w-full h-full object-cover top">
                     </div>
                     <div class="absolute inset-0 portfolio-overlay flex flex-col justify-end p-8">
                         <div class="portfolio-content">
@@ -462,7 +465,7 @@
                 <!-- Portfolio Item 6 -->
                 <div class="portfolio-card rounded-3xl bg-dark-800 border border-white/10 relative cursor-pointer reveal-up [animation-delay:200ms] shadow-xl">
                     <div class="aspect-w-16 aspect-h-12 w-full h-72">
-                        <img src="images/portfolio/dash-prod.jpeg" alt="Production Dashboard" class="w-full h-full object-cover">
+                        <img src="assets/images/portfolio/dash-prod.jpeg" alt="Production Dashboard" class="w-full h-full object-cover">
                     </div>
                     <div class="absolute inset-0 portfolio-overlay flex flex-col justify-end p-8">
                         <div class="portfolio-content">
@@ -475,7 +478,7 @@
                 <!-- Portfolio Item 7 -->
                 <div class="portfolio-card rounded-3xl bg-dark-800 border border-white/10 relative cursor-pointer reveal-up shadow-xl">
                     <div class="aspect-w-16 aspect-h-12 w-full h-72">
-                        <img src="images/portfolio/dash-mtc.jpg" alt="Maintenance Dashboard" class="w-full h-full object-cover">
+                        <img src="assets/images/portfolio/dash-mtc.jpg" alt="Maintenance Dashboard" class="w-full h-full object-cover">
                     </div>
                     <div class="absolute inset-0 portfolio-overlay flex flex-col justify-end p-8">
                         <div class="portfolio-content">
@@ -488,7 +491,7 @@
                 <!-- Portfolio Item 8 -->
                 <div class="portfolio-card rounded-3xl bg-dark-800 border border-white/10 relative cursor-pointer reveal-up [animation-delay:100ms] shadow-xl">
                     <div class="aspect-w-16 aspect-h-12 w-full h-72">
-                        <img src="images/portfolio/qty.jpg" alt="Quality Monitoring" class="w-full h-full object-cover">
+                        <img src="assets/images/portfolio/qty.jpg" alt="Quality Monitoring" class="w-full h-full object-cover">
                     </div>
                     <div class="absolute inset-0 portfolio-overlay flex flex-col justify-end p-8">
                         <div class="portfolio-content">
@@ -501,7 +504,7 @@
                 <!-- Portfolio Item 9 -->
                 <div class="portfolio-card rounded-3xl bg-dark-800 border border-white/10 relative cursor-pointer reveal-up [animation-delay:200ms] shadow-xl">
                     <div class="aspect-w-16 aspect-h-12 w-full h-72">
-                        <img src="images/portfolio/hr.jpeg" alt="HR Monitoring" class="w-full h-full object-cover">
+                        <img src="assets/images/portfolio/hr.jpeg" alt="HR Monitoring" class="w-full h-full object-cover">
                     </div>
                     <div class="absolute inset-0 portfolio-overlay flex flex-col justify-end p-8">
                         <div class="portfolio-content">
@@ -527,6 +530,9 @@
                 </a>
                 <a href="https://github.com/anurr23" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:bg-white/10 transition-all hover:-translate-y-1">
                     <i class="ph-fill ph-github-logo text-2xl"></i>
+                </a>
+                <a href="https://wa.me/6281939048569" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-green-400 hover:bg-white/10 transition-all hover:-translate-y-1">
+                    <i class="ph-fill ph-whatsapp-logo text-2xl"></i>
                 </a>
             </div>
             <p class="text-gray-500 text-sm font-medium">

@@ -47,8 +47,8 @@ To run this project locally on your machine:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/your-repo-name.git
-   cd your-repo-name
+   git clone https://github.com/anurr23/aboutaan-me.git
+   cd aboutaan-me
    ```
 
 2. **Run on a Local Server:**
@@ -76,8 +76,8 @@ Currently pursuing a bachelor's degree in Informatics at Universitas Horizon Kar
 
 Feel free to reach out if you want to collaborate or just say hi!
 
-- **Email**: your-email@example.com
-- **LinkedIn**: [Your LinkedIn Profile](https://linkedin.com/in/your-profile)
+- **Email**: muhammadanurohim23@gmail.com
+- **LinkedIn**: [Your LinkedIn Profile](https://www.linkedin.com/in/muhammad-anurohim-361a99200/)
 - **Instagram**: [@anurr23](https://instagram.com/anurr23)
 
 ---

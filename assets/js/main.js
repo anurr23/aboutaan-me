@@ -36,18 +36,56 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Navbar scroll effect
+    // Navbar scroll effect & Scroll Spy
     const navbar = document.getElementById('navbar');
-    
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinksDesktop = document.querySelectorAll('.nav-link');
+    const navLinksMobile = document.querySelectorAll('.mobile-nav-link');
+
+    const handleScroll = () => {
+        let scrollY = window.scrollY;
+
+        if (scrollY > 50) {
             navbar.classList.add('scrolled');
             navbar.classList.replace('border-transparent', 'border-white/10');
         } else {
             navbar.classList.remove('scrolled');
             navbar.classList.replace('border-white/10', 'border-transparent');
         }
-    });
+
+        sections.forEach(sec => {
+            const sectionTop = sec.offsetTop - 150;
+            const sectionHeight = sec.offsetHeight;
+            const sectionId = sec.getAttribute('id');
+
+            if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                // Desktop Links
+                navLinksDesktop.forEach(link => {
+                    link.classList.remove('active', 'text-brand-400', 'hover:text-brand-300', 'after:bg-brand-400', 'after:scale-x-100');
+                    link.classList.add('text-gray-300', 'hover:text-white', 'after:bg-white', 'after:scale-x-0');
+                    
+                    if (link.getAttribute('href') === '#' + sectionId) {
+                        link.classList.remove('text-gray-300', 'hover:text-white', 'after:bg-white', 'after:scale-x-0');
+                        link.classList.add('active', 'text-brand-400', 'hover:text-brand-300', 'after:bg-brand-400', 'after:scale-x-100');
+                    }
+                });
+
+                // Mobile Links
+                navLinksMobile.forEach(link => {
+                    link.classList.remove('text-brand-400', 'bg-brand-500/10');
+                    link.classList.add('text-gray-300', 'hover:text-white', 'hover:bg-white/5');
+                    
+                    if (link.getAttribute('href') === '#' + sectionId) {
+                        link.classList.remove('text-gray-300', 'hover:text-white', 'hover:bg-white/5');
+                        link.classList.add('text-brand-400', 'bg-brand-500/10');
+                    }
+                });
+            }
+        });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Trigger immediately on load
 
     // Scroll reveal animation
     const revealElements = document.querySelectorAll('.reveal-left, .reveal-right, .reveal-up');
