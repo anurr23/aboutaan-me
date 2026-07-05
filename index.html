@@ -451,8 +451,8 @@
         <button onclick="navigateLightbox(1)" class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors z-10">
             <i class="ph-bold ph-caret-right text-2xl"></i>
         </button>
-        <div class="max-w-5xl w-full mx-4 md:mx-8">
-            <img id="lightbox-img" src="" alt="Certificate" class="w-full rounded-2xl shadow-2xl transition-opacity duration-300" />
+        <div class="w-full mx-4 md:mx-8" style="max-width: 64rem; display: flex; flex-direction: column; align-items: center; justify-content: center; max-height: 90vh;">
+            <img id="lightbox-img" src="" alt="Certificate" class="rounded-2xl shadow-2xl transition-opacity duration-300" style="max-width: 100%; max-height: 85vh; object-fit: contain;" />
             <p id="lightbox-caption" class="text-center text-gray-300 mt-4 text-sm font-medium"></p>
         </div>
     </div>
