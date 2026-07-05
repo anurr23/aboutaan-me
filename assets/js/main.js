@@ -209,3 +209,57 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', revealOnScroll);
     revealOnScroll(); // Trigger once on load
 });
+
+// Certificate Lightbox
+const certData = [
+    { src: 'assets/images/certificate/Certificate - Muhammad Anurohim.png', caption: 'SAP Business One — Certificate of Appreciation (May 2024)' },
+    { src: 'assets/images/certificate/photo.png', caption: 'Huawei ICT Academy — Certificate of Completion (April 2026)' },
+];
+let currentCertIndex = 0;
+
+function openLightbox(index) {
+    currentCertIndex = index;
+    const lightbox = document.getElementById('cert-lightbox');
+    const img = document.getElementById('lightbox-img');
+    const caption = document.getElementById('lightbox-caption');
+    
+    img.src = certData[index].src;
+    caption.textContent = certData[index].caption;
+    
+    lightbox.classList.remove('hidden');
+    lightbox.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox(event, forceClose = false) {
+    if (forceClose || event.target.id === 'cert-lightbox') {
+        const lightbox = document.getElementById('cert-lightbox');
+        lightbox.classList.add('hidden');
+        lightbox.classList.remove('flex');
+        document.body.style.overflow = '';
+    }
+}
+
+function navigateLightbox(direction) {
+    event.stopPropagation();
+    currentCertIndex = (currentCertIndex + direction + certData.length) % certData.length;
+    const img = document.getElementById('lightbox-img');
+    const caption = document.getElementById('lightbox-caption');
+    
+    img.style.opacity = '0';
+    setTimeout(() => {
+        img.src = certData[currentCertIndex].src;
+        caption.textContent = certData[currentCertIndex].caption;
+        img.style.opacity = '1';
+    }, 150);
+}
+
+// Keyboard support for lightbox
+document.addEventListener('keydown', (e) => {
+    const lightbox = document.getElementById('cert-lightbox');
+    if (lightbox.classList.contains('hidden')) return;
+    
+    if (e.key === 'Escape') closeLightbox(e, true);
+    if (e.key === 'ArrowLeft') navigateLightbox(-1);
+    if (e.key === 'ArrowRight') navigateLightbox(1);
+});
