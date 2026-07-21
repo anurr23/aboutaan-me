@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,20 +11,20 @@
     <meta name="robots" content="index, follow">
     <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Muhammad Anurohim — Web App Developer & IT Leader">
+    <meta property="og:title" content="Anur | Web App Developer & IT Leader">
     <meta property="og:description" content="Passionate developer specializing in PHP, Laravel, CodeIgniter, and enterprise web applications. Currently leading IT operations and building innovative solutions.">
     <meta property="og:image" content="assets/images/new_avatar_final.png">
-    <meta property="og:url" content="https://about-me-orcin-theta.vercel.app/">
+    <meta property="og:url" content="https://anurohim.com/">
     <meta property="og:site_name" content="Anur Portfolio">
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Muhammad Anurohim — Web App Developer & IT Leader">
+    <meta name="twitter:title" content="Anur | Web App Developer & IT Leader">
     <meta name="twitter:description" content="Passionate developer specializing in PHP, Laravel, CodeIgniter, and enterprise web applications.">
     <meta name="twitter:image" content="assets/images/new_avatar_final.png">
     <!-- Theme Color -->
     <meta name="theme-color" content="#0a0a1a">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/avatar_transparent.png">
+    <link rel="shortcut icon" type="image/png" href="assets/images/avatar_transparent.png">
     <!-- Tailwind CSS (Compiled) -->
     <link rel="stylesheet" href="assets/css/tailwind.css">
     <!-- Google Fonts -->
@@ -36,13 +36,13 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/custom-style.css">
 </head>
-<body class="bg-dark-900 text-gray-300 font-sans selection:bg-brand-500/30 selection:text-white overflow-x-hidden cursor-default">
+<body class="bg-dark-900 text-gray-300 font-sans selection:bg-brand-500/30 selection:text-white cursor-default">
     <!-- Mouse Tracker -->
-    <div id="mouse-dot" class="fixed w-2 h-2 bg-brand-400 rounded-full pointer-events-none z-[100] mix-blend-screen opacity-0 transition-opacity duration-300"></div>
-    <div id="mouse-ring" class="fixed w-8 h-8 border border-brand-400/40 rounded-full pointer-events-none z-[99] mix-blend-screen opacity-0 transition-opacity duration-300 shadow-[0_0_10px_rgba(129,140,248,0.2)]"></div>
+    <div id="mouse-dot" class="hidden md:block fixed w-2 h-2 bg-brand-400 rounded-full pointer-events-none z-[100] mix-blend-screen opacity-0 transition-opacity duration-300"></div>
+    <div id="mouse-ring" class="hidden md:block fixed w-8 h-8 border border-brand-400/40 rounded-full pointer-events-none z-[99] mix-blend-screen opacity-0 transition-opacity duration-300 shadow-[0_0_10px_rgba(129,140,248,0.2)]"></div>
 
     <!-- Ambient Global Background -->
-    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+    <div class="fixed inset-0 z-0 pointer-events-none w-full h-full">
         <!-- Faint Grid Pattern -->
         <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)]"></div>
         
@@ -57,7 +57,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <div class="flex-shrink-0">
-                    <a href="#" class="flex items-center gap-3 group">
+                    <a href="https://github.com/anurr23" class="flex items-center gap-3 group">
                         <img class="h-10 w-10 rounded-full border border-white/10 group-hover:border-brand-500 transition-colors object-cover" src="assets/images/avatar_transparent.png" alt="Anurohim">
                         <span class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 group-hover:to-brand-400 transition-colors">Anur.</span>
                     </a>
@@ -71,6 +71,7 @@
                         <a href="#education" class="nav-link text-gray-300 hover:text-white font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-white after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform">Education</a>
                         <a href="#certificates" class="nav-link text-gray-300 hover:text-white font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-white after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform">Certificates</a>
                         <a href="#portfolio" class="nav-link text-gray-300 hover:text-white font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-white after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform">Portfolio</a>
+                        <a href="#contact" class="nav-link text-gray-300 hover:text-white font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-white after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform">Contact</a>
                     </div>
                 </div>
                 <div class="hidden md:block">
@@ -89,7 +90,7 @@
         </div>
 
         <!-- Mobile menu -->
-        <div class="md:hidden hidden bg-dark-800/95 backdrop-blur-xl border-b border-white/10 transition-all duration-300 origin-top scale-y-0" id="mobile-menu">
+        <div class="md:hidden hidden bg-dark-900/98 backdrop-blur-3xl border-b border-white/10 transition-all duration-300 origin-top scale-y-0 shadow-2xl" id="mobile-menu">
             <div class="px-4 pt-2 pb-6 space-y-2">
                 <a href="#home" class="mobile-nav-link text-brand-400 block px-3 py-3 rounded-md text-base font-medium bg-brand-500/10">Home</a>
                 <a href="#about" class="mobile-nav-link text-gray-300 hover:text-white hover:bg-white/5 block px-3 py-3 rounded-md text-base font-medium transition-colors">About</a>
@@ -98,6 +99,7 @@
                 <a href="#education" class="mobile-nav-link text-gray-300 hover:text-white hover:bg-white/5 block px-3 py-3 rounded-md text-base font-medium transition-colors">Education</a>
                 <a href="#certificates" class="mobile-nav-link text-gray-300 hover:text-white hover:bg-white/5 block px-3 py-3 rounded-md text-base font-medium transition-colors">Certificates</a>
                 <a href="#portfolio" class="mobile-nav-link text-gray-300 hover:text-white hover:bg-white/5 block px-3 py-3 rounded-md text-base font-medium transition-colors">Portfolio</a>
+                <a href="#contact" class="mobile-nav-link text-gray-300 hover:text-white hover:bg-white/5 block px-3 py-3 rounded-md text-base font-medium transition-colors">Contact</a>
             </div>
         </div>
     </nav>
@@ -134,20 +136,11 @@
                     I am very interested in the world of technology to always improve my skills, and will always give the best I can for what has been given to me.
                 </p>
 
-                <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-2">
-                    <a href="#portfolio" class="px-8 py-4 rounded-full bg-brand-600 hover:bg-brand-500 text-white font-semibold shadow-lg shadow-brand-500/30 transition-all hover:-translate-y-1 flex items-center gap-2">
-                        View Portfolio <i class="ph-bold ph-arrow-right"></i>
-                    </a>
-                    <a href="#experience" class="px-8 py-4 rounded-full bg-white/5 hover:bg-white/10 text-white font-semibold border border-white/10 backdrop-blur-sm transition-all hover:-translate-y-1">
-                        My Resume
-                    </a>
-                </div>
-
                 <div class="flex items-center justify-center md:justify-start gap-6 pt-6">
                     <a href="https://www.linkedin.com/in/muhammad-anurohim-361a99200/" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-brand-400 hover:bg-white/10 transition-all hover:-translate-y-1">
                         <i class="ph-fill ph-linkedin-logo text-2xl"></i>
                     </a>
-                    <a href="https://instagram.com/anur53_" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-purple-400 hover:bg-white/10 transition-all hover:-translate-y-1">
+                    <a href="https://instagram.com/anurr23" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-purple-400 hover:bg-white/10 transition-all hover:-translate-y-1">
                         <i class="ph-fill ph-instagram-logo text-2xl"></i>
                     </a>
                     <a href="https://github.com/anurr23" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:bg-white/10 transition-all hover:-translate-y-1">
@@ -369,8 +362,8 @@
                                 </div>
                             </div>
                             <h3 class="text-2xl font-bold text-white mb-1">Leader IT</h3>
-                            <h4 class="text-gray-400 font-medium mb-6">PT. OKAMOTO LOGISTICS NUSANTARA</h4>
-                            <ul class="space-y-3 text-gray-400 text-sm md:text-base">
+                            <h4 class="text-teal-400 font-semibold mb-6">PT. OKAMOTO LOGISTICS NUSANTARA</h4>
+                            <ul class="space-y-3 text-gray-300 text-sm md:text-base">
                                 <li class="flex items-start gap-3"><i class="ph-bold ph-check text-teal-500 mt-1"></i><span>Leading the IT team and managing the overall IT infrastructure and operations within the company.</span></li>
                                 <li class="flex items-start gap-3"><i class="ph-bold ph-check text-teal-500 mt-1"></i><span>Designing, developing, and maintaining internal web-based applications to support business operations.</span></li>
                                 <li class="flex items-start gap-3"><i class="ph-bold ph-check text-teal-500 mt-1"></i><span>Building and optimizing monitoring dashboards for logistics tracking, warehouse management, and reporting systems.</span></li>
@@ -395,8 +388,8 @@
                                 <span class="text-brand-400 font-bold block text-sm">Aug 2023 - Nov 2023 | Karawang</span>
                             </div>
                             <h3 class="text-2xl font-bold text-white mb-1">Internship Project - IT Development</h3>
-                            <h4 class="text-gray-400 font-medium mb-6">PT. AKASHI WAHANA INDONESIA</h4>
-                            <ul class="space-y-3 text-gray-400 text-sm md:text-base">
+                            <h4 class="text-brand-400 font-semibold mb-6">PT. AKASHI WAHANA INDONESIA</h4>
+                            <ul class="space-y-3 text-gray-300 text-sm md:text-base">
                                 <li class="flex items-start gap-3"><i class="ph-bold ph-check text-brand-500 mt-1"></i><span>Created monitoring dashboard for production and delivery achievements.</span></li>
                                 <li class="flex items-start gap-3"><i class="ph-bold ph-check text-brand-500 mt-1"></i><span>Created monitoring dashboard for Human Resources and Budget.</span></li>
                                 <li class="flex items-start gap-3"><i class="ph-bold ph-check text-brand-500 mt-1"></i><span>Created monitoring dashboard for Maintenance and machine Andon mapping.</span></li>
@@ -420,8 +413,8 @@
                                 <span class="text-purple-400 font-bold block text-sm">Feb 2021 - Jul 2023 | Karawang</span>
                             </div>
                             <h3 class="text-2xl font-bold text-white mb-1">IT Support & Development</h3>
-                            <h4 class="text-gray-400 font-medium mb-6">PT. PAKOAKUINA</h4>
-                            <ul class="space-y-3 text-gray-400 text-sm md:text-base">
+                            <h4 class="text-purple-400 font-semibold mb-6">PT. PAKOAKUINA</h4>
+                            <ul class="space-y-3 text-gray-300 text-sm md:text-base">
                                 <li class="flex items-start gap-3"><i class="ph-bold ph-check text-purple-500 mt-1"></i><span>Created production achievement dashboards & machine record systems.</span></li>
                                 <li class="flex items-start gap-3"><i class="ph-bold ph-check text-purple-500 mt-1"></i><span>Developed personnel systems for leave requests and employee benefits.</span></li>
                                 <li class="flex items-start gap-3"><i class="ph-bold ph-check text-purple-500 mt-1"></i><span>PHP to Oracle program integration & CodeIgniter/MySQL development.</span></li>
@@ -436,17 +429,17 @@
                     <div class="md:hidden absolute w-4 h-4 bg-gray-500 rounded-full -left-[8.5px] top-1.5 shadow-[0_0_10px_rgba(107,114,128,0.5)]"></div>
                     <div class="flex flex-col md:flex-row gap-4 md:gap-12 items-start md:items-center">
                         <div class="md:w-1/3 md:text-right hidden md:block">
-                            <span class="text-gray-400 font-bold block text-lg">2018 - 2020</span>
+                            <span class="text-gray-400 font-bold block text-lg">Feb 2018 - Dec 2020</span>
                             <span class="text-gray-500 text-sm">Karawang</span>
                         </div>
                         <div class="md:w-2/3 bg-dark-800 p-8 rounded-3xl border border-white/10 hover:border-gray-500/50 transition-all relative shadow-xl hover:-translate-y-1">
                             <div class="hidden md:block absolute w-4 h-4 bg-gray-500 rounded-full -left-[1.8rem] top-1/2 -translate-y-1/2 shadow-[0_0_10px_rgba(107,114,128,0.5)]"></div>
                             <div class="md:hidden mb-2">
-                                <span class="text-gray-400 font-bold block text-sm">2018 - 2020 | Karawang</span>
+                                <span class="text-gray-400 font-bold block text-sm">Feb 2018 - Dec 2020 | Karawang</span>
                             </div>
                             <h3 class="text-2xl font-bold text-white mb-1">Production Operator</h3>
-                            <h4 class="text-gray-400 font-medium mb-6">PT. ASTRA DAIHATSU MOTOR</h4>
-                            <p class="text-base text-gray-400 leading-relaxed">Mastered entire processes on each line, participated in QCC improvement activities, and advanced in internal Skill Contests.</p>
+                            <h4 class="text-gray-300 font-semibold mb-6">PT. ASTRA DAIHATSU MOTOR</h4>
+                            <p class="text-base text-gray-300 leading-relaxed">Mastered entire processes on each line, participated in QCC improvement activities, and advanced in internal Skill Contests.</p>
                         </div>
                     </div>
                 </div>
@@ -702,15 +695,33 @@
         </div>
     </section>
 
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 relative z-10 border-t border-white/5 bg-dark-900 text-center">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12 reveal-up">
+                <span class="text-brand-400 font-semibold tracking-wider uppercase text-sm">Get in Touch</span>
+                <h2 class="text-3xl md:text-5xl font-bold mt-2 text-white">Let's Collaborate</h2>
+                <p class="text-gray-300 mt-6 max-w-2xl mx-auto leading-relaxed">
+                    I'm currently open to new opportunities and collaborations. Whether you have a question, a project in mind, or just want to say hi, I'll try my best to get back to you!
+                </p>
+            </div>
+            
+            <a href="mailto:muhammadanurohim23@gmail.com" class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-brand-600 hover:bg-brand-500 text-white font-bold shadow-lg shadow-brand-500/30 transition-all hover:-translate-y-1 reveal-up [animation-delay:100ms]">
+                <i class="ph-bold ph-envelope-simple text-xl"></i>
+                Say Hello
+            </a>
+        </div>
+    </section>
+
     <!-- Footer -->
-    <footer class="py-12 border-t border-white/10 bg-dark-900 relative z-10 text-center">
+    <footer class="py-12 border-t border-white/10 bg-dark-900/50 backdrop-blur-md relative z-10 text-center reveal-up">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-extrabold text-white mb-6 tracking-tight">Muhammad Anurohim</h2>
-            <div class="flex items-center justify-center gap-6 mb-8">
+            <h2 class="text-3xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-brand-400 to-purple-400 mb-6 tracking-tight inline-block reveal-up">Anur.</h2>
+            <div class="flex items-center justify-center gap-6 mb-8 reveal-up [animation-delay:100ms]">
                 <a href="https://www.linkedin.com/in/muhammad-anurohim-361a99200/" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-brand-400 hover:bg-white/10 transition-all hover:-translate-y-1">
                     <i class="ph-fill ph-linkedin-logo text-2xl"></i>
                 </a>
-                <a href="https://instagram.com/anur53_" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-purple-400 hover:bg-white/10 transition-all hover:-translate-y-1">
+                <a href="https://instagram.com/anurr23" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-purple-400 hover:bg-white/10 transition-all hover:-translate-y-1">
                     <i class="ph-fill ph-instagram-logo text-2xl"></i>
                 </a>
                 <a href="https://github.com/anurr23" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:bg-white/10 transition-all hover:-translate-y-1">
@@ -720,13 +731,41 @@
                     <i class="ph-fill ph-whatsapp-logo text-2xl"></i>
                 </a>
             </div>
-            <p class="text-gray-500 text-sm font-medium">
+            <p class="text-gray-500 text-sm font-medium reveal-up [animation-delay:200ms]">
                 &copy; <script>document.write(new Date().getFullYear())</script> Muhammad Anurohim. All Rights Reserved.
             </p>
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <a href="#home" id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-brand-600 hover:bg-brand-500 text-white rounded-full flex items-center justify-center shadow-lg shadow-brand-500/30 transition-all duration-300 z-50 opacity-0 pointer-events-none translate-y-4">
+        <i class="ph-bold ph-arrow-up text-xl"></i>
+    </a>
+
     <!-- JS -->
+    <!-- Lenis Smooth Scroll Library (Lightweight & Modern) -->
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+    <script>
+        // Initialize Lenis
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smooth: true,
+            mouseMultiplier: 1,
+            smoothTouch: false,
+            touchMultiplier: 2,
+            infinite: false,
+        });
+
+        // RequestAnimationFrame loop for Lenis
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+    </script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/modal.js"></script>
 </body>

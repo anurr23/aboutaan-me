@@ -41,10 +41,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('section[id]');
     const navLinksDesktop = document.querySelectorAll('.nav-link');
     const navLinksMobile = document.querySelectorAll('.mobile-nav-link');
+    const backToTopBtn = document.getElementById('back-to-top');
 
     const handleScroll = () => {
         let scrollY = window.scrollY;
 
+        // Navbar & Back to Top visibility
         if (scrollY > 50) {
             navbar.classList.add('scrolled');
             navbar.classList.replace('border-transparent', 'border-white/10');
@@ -53,12 +55,23 @@ document.addEventListener('DOMContentLoaded', () => {
             navbar.classList.replace('border-white/10', 'border-transparent');
         }
 
+        if (scrollY > 500 && backToTopBtn) {
+            backToTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+            backToTopBtn.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+        } else if (backToTopBtn) {
+            backToTopBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+            backToTopBtn.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+        }
+
         sections.forEach(sec => {
             const sectionTop = sec.offsetTop - 150;
             const sectionHeight = sec.offsetHeight;
             const sectionId = sec.getAttribute('id');
+            
+            // Special condition for the bottom of the page (Contact/Footer)
+            const isBottom = window.innerHeight + Math.round(window.scrollY) >= document.body.offsetHeight - 50;
 
-            if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+            if ((scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) || (isBottom && sectionId === 'contact')) {
                 // Desktop Links
                 navLinksDesktop.forEach(link => {
                     link.classList.remove('active', 'text-brand-400', 'hover:text-brand-300', 'after:bg-brand-400', 'after:scale-x-100');
@@ -83,6 +96,31 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     };
+
+    // Smooth Scroll for Nav Links (Lenis Integration)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement && typeof lenis !== 'undefined') {
+                lenis.scrollTo(targetElement, {
+                    offset: -80,
+                    duration: 1.2
+                });
+            } else if (targetElement) {
+                const offset = 80;
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - offset;
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
 
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // Trigger immediately on load
@@ -171,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // -------------------------
     const typingText = document.getElementById('typing-text');
     if (typingText) {
-        const words = ['Web App Developer', 'Frontend Enthusiast', 'UI/UX Explorer', 'Problem Solver'];
+        const words = ['Web App Developer', 'IT Leader', 'Problem Solver', 'Backend Enthusiast'];
         let wordIndex = 0;
         let charIndex = words[0].length; // Start with the first word fully typed
         let isDeleting = true;
