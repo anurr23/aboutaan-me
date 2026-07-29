@@ -312,3 +312,54 @@ document.addEventListener('mousemove', (e) => {
         card.style.setProperty('--mouse-y', `${y}px`);
     });
 });
+
+// Magnetic Button Effect
+const magneticBtns = document.querySelectorAll('.magnetic-btn');
+
+magneticBtns.forEach(btn => {
+    btn.addEventListener('mousemove', function(e) {
+        const position = btn.getBoundingClientRect();
+        const x = e.clientX - position.left - position.width / 2;
+        const y = e.clientY - position.top - position.height / 2;
+        
+        if (typeof gsap !== 'undefined') {
+            gsap.to(btn, {
+                x: x * 0.3,
+                y: y * 0.5,
+                duration: 0.6,
+                ease: "power3.out"
+            });
+            
+            const icon = btn.querySelector('i');
+            if (icon) {
+                gsap.to(icon, {
+                    x: x * 0.2,
+                    y: y * 0.2,
+                    duration: 0.6,
+                    ease: "power3.out"
+                });
+            }
+        }
+    });
+
+    btn.addEventListener('mouseleave', function() {
+        if (typeof gsap !== 'undefined') {
+            gsap.to(btn, {
+                x: 0,
+                y: 0,
+                duration: 0.8,
+                ease: "elastic.out(1, 0.3)"
+            });
+            
+            const icon = btn.querySelector('i');
+            if (icon) {
+                gsap.to(icon, {
+                    x: 0,
+                    y: 0,
+                    duration: 0.8,
+                    ease: "elastic.out(1, 0.3)"
+                });
+            }
+        }
+    });
+});
