@@ -1487,8 +1487,8 @@ video {
   background-color: rgb(255 255 255 / 0.05);
 }
 
-.bg-white\/\[0\.02\] {
-  background-color: rgb(255 255 255 / 0.02);
+.bg-white\/\[0\.04\] {
+  background-color: rgb(255 255 255 / 0.04);
 }
 
 .bg-\[linear-gradient\(rgba\(255\2c 255\2c 255\2c 0\.02\)_1px\2c transparent_1px\)\2c linear-gradient\(90deg\2c rgba\(255\2c 255\2c 255\2c 0\.02\)_1px\2c transparent_1px\)\] {

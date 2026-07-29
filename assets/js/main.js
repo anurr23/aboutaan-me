@@ -125,127 +125,73 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // Trigger immediately on load
 
-    // Scroll reveal animation
-    const revealElements = document.querySelectorAll('.reveal-left, .reveal-right, .reveal-up');
-    const skillBars = document.querySelectorAll('.skill-progress');
+        // GSAP ScrollTrigger Animations
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
 
-    const revealOnScroll = () => {
-        const windowHeight = window.innerHeight;
-        const revealPoint = 100;
-
-        revealElements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            if (elementTop < windowHeight - revealPoint) {
-                element.classList.add('active');
-            }
+        // Remove CSS transitions from reveal elements to prevent conflict
+        const allReveals = document.querySelectorAll('.reveal-left, .reveal-right, .reveal-up');
+        allReveals.forEach(el => {
+            el.style.transition = 'none';
         });
 
+        // Batch animation for reveal-up elements
+        ScrollTrigger.batch(".reveal-up", {
+            interval: 0.1, // time between each element's animation
+            batchMax: 10,   // max elements per batch
+            onEnter: batch => gsap.fromTo(batch, 
+                { autoAlpha: 0, y: 50 },
+                { autoAlpha: 1, y: 0, stagger: 0.1, duration: 0.8, ease: "power3.out", overwrite: true }
+            ),
+            start: "top 85%"
+        });
+
+        // Batch animation for reveal-left
+        ScrollTrigger.batch(".reveal-left", {
+            interval: 0.1,
+            onEnter: batch => gsap.fromTo(batch,
+                { autoAlpha: 0, x: -50 },
+                { autoAlpha: 1, x: 0, stagger: 0.1, duration: 0.8, ease: "power3.out", overwrite: true }
+            ),
+            start: "top 85%"
+        });
+
+        // Batch animation for reveal-right
+        ScrollTrigger.batch(".reveal-right", {
+            interval: 0.1,
+            onEnter: batch => gsap.fromTo(batch,
+                { autoAlpha: 0, x: 50 },
+                { autoAlpha: 1, x: 0, stagger: 0.1, duration: 0.8, ease: "power3.out", overwrite: true }
+            ),
+            start: "top 85%"
+        });
+
+        // Skill progress bars
+        const skillBars = document.querySelectorAll('.skill-progress');
         skillBars.forEach(bar => {
-            const elementTop = bar.getBoundingClientRect().top;
-            if (elementTop < windowHeight - revealPoint) {
-                const targetWidth = bar.getAttribute('data-width');
-                if (targetWidth) {
-                    bar.style.width = targetWidth;
+            ScrollTrigger.create({
+                trigger: bar,
+                start: "top 90%",
+                onEnter: () => {
+                    const width = bar.getAttribute('data-width');
+                    if (width) bar.style.width = width;
                 }
-            }
-        });
-    };
-    // -------------------------
-    // Mouse Tracker Effect
-    // -------------------------
-    const mouseDot = document.getElementById('mouse-dot');
-    const mouseRing = document.getElementById('mouse-ring');
-    
-    if (mouseDot && mouseRing) {
-        let mouseX = window.innerWidth / 2;
-        let mouseY = window.innerHeight / 2;
-        let ringX = mouseX;
-        let ringY = mouseY;
-        let isHovering = false;
-        
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            mouseDot.style.opacity = '1';
-            mouseRing.style.opacity = '1';
-        });
-
-        document.addEventListener('mouseleave', () => {
-            mouseDot.style.opacity = '0';
-            mouseRing.style.opacity = '0';
-        });
-
-        const clickables = document.querySelectorAll('a, button, input, textarea, .group');
-        clickables.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                isHovering = true;
-                mouseRing.classList.add('bg-brand-500/20', 'border-brand-400');
-                mouseRing.classList.remove('border-brand-400/40');
-            });
-            el.addEventListener('mouseleave', () => {
-                isHovering = false;
-                mouseRing.classList.remove('bg-brand-500/20', 'border-brand-400');
-                mouseRing.classList.add('border-brand-400/40');
             });
         });
-
-        const animateTracker = () => {
-            // LERP for smooth trailing
-            ringX += (mouseX - ringX) * 0.15;
-            ringY += (mouseY - ringY) * 0.15;
-            
-            mouseDot.style.transform = `translate3d(${mouseX - 4}px, ${mouseY - 4}px, 0)`;
-            
-            const scale = isHovering ? 1.5 : 1;
-            mouseRing.style.transform = `translate3d(${ringX - 16}px, ${ringY - 16}px, 0) scale(${scale})`;
-            
-            requestAnimationFrame(animateTracker);
+    } else {
+        // Fallback if GSAP fails to load
+        const revealElements = document.querySelectorAll('.reveal-left, .reveal-right, .reveal-up');
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            revealElements.forEach(element => {
+                if (element.getBoundingClientRect().top < windowHeight - 100) {
+                    element.classList.add('active');
+                }
+            });
         };
-        requestAnimationFrame(animateTracker);
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
     }
-
-    // -------------------------
-    // Typing Effect
-    // -------------------------
-    const typingText = document.getElementById('typing-text');
-    if (typingText) {
-        const words = ['Web App Developer', 'IT Leader', 'Problem Solver', 'Backend Enthusiast'];
-        let wordIndex = 0;
-        let charIndex = words[0].length; // Start with the first word fully typed
-        let isDeleting = true;
-        
-        const typeEffect = () => {
-            const currentWord = words[wordIndex];
-            
-            if (isDeleting) {
-                typingText.textContent = currentWord.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typingText.textContent = currentWord.substring(0, charIndex + 1);
-                charIndex++;
-            }
-            
-            let typeSpeed = isDeleting ? 50 : 100;
-            
-            if (!isDeleting && charIndex === currentWord.length) {
-                // Pause at end of word
-                typeSpeed = 1200;
-                isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                wordIndex = (wordIndex + 1) % words.length;
-                typeSpeed = 500;
-            }
-            
-            setTimeout(typeEffect, typeSpeed);
-        };
-        
-        // Initial pause before starting deletion
-        setTimeout(typeEffect, 1200);
-    }
-
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll(); // Trigger once on load
 });
 
 // Certificate Lightbox
