@@ -87,3 +87,26 @@ body {
     transform: translateY(0);
     opacity: 1;
 }
+
+/* Glow Card Effect */
+.glow-card {
+    position: relative;
+    overflow: hidden;
+}
+.glow-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(600px circle at var(--mouse-x, -500px) var(--mouse-y, -500px), rgba(255, 255, 255, 0.05), transparent 40%);
+    z-index: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    opacity: 0;
+}
+.glow-card:hover::before {
+    opacity: 1;
+}
+.glow-content {
+    position: relative;
+    z-index: 1;
+}
