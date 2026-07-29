@@ -314,18 +314,20 @@ document.addEventListener('mousemove', (e) => {
 });
 
 // Magnetic Button Effect
-const magneticBtns = document.querySelectorAll('.magnetic-btn');
+const magneticWraps = document.querySelectorAll('.magnetic-wrap');
 
-magneticBtns.forEach(btn => {
-    btn.addEventListener('mousemove', function(e) {
-        const position = btn.getBoundingClientRect();
+magneticWraps.forEach(wrap => {
+    const btn = wrap.querySelector('.magnetic-btn');
+    
+    wrap.addEventListener('mousemove', function(e) {
+        const position = wrap.getBoundingClientRect();
         const x = e.clientX - position.left - position.width / 2;
         const y = e.clientY - position.top - position.height / 2;
         
-        if (typeof gsap !== 'undefined') {
+        if (typeof gsap !== 'undefined' && btn) {
             gsap.to(btn, {
-                x: x * 0.3,
-                y: y * 0.5,
+                x: x * 0.4,
+                y: y * 0.4,
                 duration: 0.6,
                 ease: "power3.out"
             });
@@ -342,8 +344,8 @@ magneticBtns.forEach(btn => {
         }
     });
 
-    btn.addEventListener('mouseleave', function() {
-        if (typeof gsap !== 'undefined') {
+    wrap.addEventListener('mouseleave', function() {
+        if (typeof gsap !== 'undefined' && btn) {
             gsap.to(btn, {
                 x: 0,
                 y: 0,
