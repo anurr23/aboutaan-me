@@ -36,10 +36,18 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/custom-style.css?v=1.1">
 </head>
-<body class="bg-dark-900 text-gray-300 font-sans selection:bg-brand-500/30 selection:text-white cursor-default">
-    <!-- Mouse Tracker -->
-    <div id="mouse-dot" class="hidden md:block fixed w-2 h-2 bg-brand-400 rounded-full pointer-events-none z-[100] mix-blend-screen opacity-0 transition-opacity duration-300"></div>
-    <div id="mouse-ring" class="hidden md:block fixed w-8 h-8 border border-brand-400/40 rounded-full pointer-events-none z-[99] mix-blend-screen opacity-0 transition-opacity duration-300 shadow-[0_0_10px_rgba(129,140,248,0.2)]"></div>
+<body class="bg-dark-900 text-gray-300 font-sans selection:bg-brand-500/30 selection:text-white cursor-none relative">
+    <!-- Liquid/Magnetic Custom Cursor -->
+    <div id="cursor-svg" style="z-index: 2147483647;" class="fixed pointer-events-none opacity-0 overflow-visible">
+        <!-- Modern Custom Arrow SVG -->
+        <svg id="cursor-arrow" width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5)); transform-origin: top left; position: absolute; top: 0; left: 0;">
+            <path d="M5.5 3L21.5 12L13 14.5L10 22.5L5.5 3Z" fill="#818CF8" stroke="#ffffff" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+        <!-- Hover Pointer Ring -->
+        <div id="cursor-pointer-ring" class="absolute w-12 h-12 border border-brand-400 bg-brand-400/10 rounded-full opacity-0 scale-50 backdrop-blur-sm flex items-center justify-center" style="top: -21px; left: -19px; transform-origin: center;">
+            <div class="w-1.5 h-1.5 bg-brand-400 rounded-full"></div>
+        </div>
+    </div>
 
     <!-- Ambient Global Background -->
     <div class="fixed inset-0 z-0 pointer-events-none w-full h-full">
@@ -137,18 +145,26 @@
                 </p>
 
                 <div class="flex items-center justify-center md:justify-start gap-6 pt-6">
-                    <a href="https://www.linkedin.com/in/muhammad-anurohim-361a99200/" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-brand-400 hover:bg-white/10 transition-all hover:-translate-y-1">
-                        <i class="ph-fill ph-linkedin-logo text-2xl"></i>
-                    </a>
-                    <a href="https://instagram.com/anurr23" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-purple-400 hover:bg-white/10 transition-all hover:-translate-y-1">
-                        <i class="ph-fill ph-instagram-logo text-2xl"></i>
-                    </a>
-                    <a href="https://github.com/anurr23" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:bg-white/10 transition-all hover:-translate-y-1">
-                        <i class="ph-fill ph-github-logo text-2xl"></i>
-                    </a>
-                    <a href="https://wa.me/6281939048569" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-green-400 hover:bg-white/10 transition-all hover:-translate-y-1">
-                        <i class="ph-fill ph-whatsapp-logo text-2xl"></i>
-                    </a>
+                    <div class="magnetic-wrap inline-block">
+                        <a href="https://www.linkedin.com/in/muhammad-anurohim-361a99200/" target="_blank" class="magnetic-btn w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-brand-400 hover:bg-white/10 transition-colors">
+                            <i class="ph-fill ph-linkedin-logo text-2xl"></i>
+                        </a>
+                    </div>
+                    <div class="magnetic-wrap inline-block">
+                        <a href="https://instagram.com/anurr23" target="_blank" class="magnetic-btn w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-purple-400 hover:bg-white/10 transition-colors">
+                            <i class="ph-fill ph-instagram-logo text-2xl"></i>
+                        </a>
+                    </div>
+                    <div class="magnetic-wrap inline-block">
+                        <a href="https://github.com/anurr23" target="_blank" class="magnetic-btn w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:bg-white/10 transition-colors">
+                            <i class="ph-fill ph-github-logo text-2xl"></i>
+                        </a>
+                    </div>
+                    <div class="magnetic-wrap inline-block">
+                        <a href="https://wa.me/6281939048569" target="_blank" class="magnetic-btn w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-green-400 hover:bg-white/10 transition-colors">
+                            <i class="ph-fill ph-whatsapp-logo text-2xl"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
             

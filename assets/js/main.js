@@ -194,6 +194,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// Advanced Custom Cursor (Fallback removal for mouse tracker)
+document.addEventListener('DOMContentLoaded', () => {
+    const oldTracker1 = document.getElementById('mouse-dot');
+    const oldTracker2 = document.getElementById('mouse-ring');
+    if (oldTracker1) oldTracker1.remove();
+    if (oldTracker2) oldTracker2.remove();
+});
+
 // Certificate Lightbox
 const certData = [
     { src: 'assets/images/certificate/Certificate - Muhammad Anurohim.png', caption: 'SAP Business One — Certificate of Appreciation (May 2024)' },
@@ -310,6 +318,70 @@ magneticWraps.forEach(wrap => {
             }
         }
     });
+});
+
+// Advanced Custom Cursor
+document.addEventListener('DOMContentLoaded', () => {
+    // Legacy fallback removal
+    const oldTracker1 = document.getElementById('mouse-dot');
+    const oldTracker2 = document.getElementById('mouse-ring');
+    if (oldTracker1) oldTracker1.remove();
+    if (oldTracker2) oldTracker2.remove();
+
+    if (typeof gsap !== 'undefined' && !window.matchMedia("(max-width: 768px)").matches) {
+        const cursorSvg = document.getElementById('cursor-svg');
+        const cursorArrow = document.getElementById('cursor-arrow');
+        const cursorPointerRing = document.getElementById('cursor-pointer-ring');
+        
+        if (cursorSvg) {
+            
+            // Force maximum z-index via JS to bypass any stacked context issues
+            cursorSvg.style.zIndex = "2147483647";
+            
+            // Extreme low latency tracking
+            const cursorX = gsap.quickTo(cursorSvg, "x", {duration: 0.01, ease: "none"});
+            const cursorY = gsap.quickTo(cursorSvg, "y", {duration: 0.01, ease: "none"});
+            
+            let isVisible = false;
+
+            window.addEventListener("mousemove", (e) => {
+                // Offset perfectly to top-left tip
+                cursorX(e.clientX - 5); 
+                cursorY(e.clientY - 3);
+                
+                if (!isVisible) {
+                    gsap.to(cursorSvg, { opacity: 1, duration: 0.1 });
+                    isVisible = true;
+                }
+            });
+
+            window.addEventListener("mousedown", () => {
+                gsap.to(cursorArrow, { scale: 0.8, rotate: -10, duration: 0.1 });
+                gsap.to(cursorPointerRing, { scale: 0.8, backgroundColor: 'rgba(99, 102, 241, 0.3)', duration: 0.1 });
+            });
+            window.addEventListener("mouseup", () => {
+                gsap.to(cursorArrow, { scale: 1, rotate: 0, duration: 0.1 });
+                gsap.to(cursorPointerRing, { scale: 1, backgroundColor: 'rgba(99, 102, 241, 0.1)', duration: 0.1 });
+            });
+
+            // Interactions
+            const hoverElements = document.querySelectorAll('a, button, .magnetic-wrap, .portfolio-card, input, textarea');
+            
+            hoverElements.forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    // Hide arrow, show elegant pointer ring
+                    gsap.to(cursorArrow, { opacity: 0, scale: 0.5, duration: 0.2 });
+                    gsap.to(cursorPointerRing, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(1.7)" });
+                });
+                
+                el.addEventListener('mouseleave', () => {
+                    // Restore arrow, hide ring
+                    gsap.to(cursorArrow, { opacity: 1, scale: 1, duration: 0.2 });
+                    gsap.to(cursorPointerRing, { opacity: 0, scale: 0.5, duration: 0.2 });
+                });
+            });
+        }
+    }
 });
 
 // 3D Tilt Effect for Portfolio Cards
