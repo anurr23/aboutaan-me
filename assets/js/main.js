@@ -365,3 +365,63 @@ magneticWraps.forEach(wrap => {
         }
     });
 });
+
+// 3D Tilt Effect for Portfolio Cards
+const tiltWraps = document.querySelectorAll('.tilt-wrap');
+
+tiltWraps.forEach(wrap => {
+    const card = wrap.querySelector('.tilt-card');
+    
+    wrap.addEventListener('mousemove', function(e) {
+        const rect = wrap.getBoundingClientRect();
+        const x = e.clientX - rect.left; // x position within the element
+        const y = e.clientY - rect.top; // y position within the element
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        // Calculate rotation based on cursor distance from center
+        const rotateX = ((y - centerY) / centerY) * -10; // Max rotation 10deg
+        const rotateY = ((x - centerX) / centerX) * 10;
+        
+        if (typeof gsap !== 'undefined' && card) {
+            gsap.to(card, {
+                rotateX: rotateX,
+                rotateY: rotateY,
+                transformPerspective: 1000,
+                duration: 0.5,
+                ease: "power2.out"
+            });
+            
+            // Optional: parallax effect on inner content
+            const content = card.querySelector('.portfolio-content');
+            if (content) {
+                gsap.to(content, {
+                    z: 50,
+                    duration: 0.5,
+                    ease: "power2.out"
+                });
+            }
+        }
+    });
+    
+    wrap.addEventListener('mouseleave', function() {
+        if (typeof gsap !== 'undefined' && card) {
+            gsap.to(card, {
+                rotateX: 0,
+                rotateY: 0,
+                duration: 0.8,
+                ease: "elastic.out(1, 0.3)"
+            });
+            
+            const content = card.querySelector('.portfolio-content');
+            if (content) {
+                gsap.to(content, {
+                    z: 0,
+                    duration: 0.8,
+                    ease: "elastic.out(1, 0.3)"
+                });
+            }
+        }
+    });
+});
